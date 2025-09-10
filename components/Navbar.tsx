@@ -1,12 +1,25 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
+import Navitems from './Navitems'
 
 const Navbar = () => {
   return (
-    <div className='h-[90px] flex items-center'>
-        <div className="logo">
-            
+    <nav className='navbar'>
+        <Link href = "/">
+            <div className='flex items-center gap-2.5 cursor-pointer'>
+                <Image src={"/images/logo.svg"}
+                alt='logo'
+                width={46}
+                height={44}
+                />
+            </div>
+        </Link>
+        <div className='flex items-center gap-8'>
+            <Navitems/>
+            <p>Sign-in</p>
         </div>
-    </div>
+    </nav>
   )
 }
 
