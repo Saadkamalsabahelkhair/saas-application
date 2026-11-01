@@ -21,6 +21,12 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More
+## Database
+
+The app stores companions and session history in a local SQLite database at `data/companions.sqlite`. The database and tables are created automatically when the server starts. Set `SQLITE_DB_PATH` to use a different file location.
+
+This local-file setup is intended for a persistent Node.js server. Serverless deployments need a persistent volume or a hosted SQLite-compatible service; otherwise, database writes may be lost between instances.
+
 
 To learn more about Next.js, take a look at the following resources:
 
