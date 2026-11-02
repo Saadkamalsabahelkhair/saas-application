@@ -3,7 +3,11 @@ import Database from "better-sqlite3"
 import { mkdirSync } from "node:fs"
 import path from "node:path"
 
-const databasePath = process.env.SQLITE_DB_PATH ?? path.join(process.cwd(), "data", "companions.sqlite")
+const databasePath = process.env.SQLITE_DB_PATH ?? (
+  process.env.VERCEL
+    ? path.join("/tmp", "companions.sqlite")
+    : path.join(process.cwd(), "data", "companions.sqlite")
+)
 mkdirSync(path.dirname(databasePath), { recursive: true })
 
 const globalForDatabase = globalThis as typeof globalThis & {

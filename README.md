@@ -27,6 +27,8 @@ The app stores companions and session history in a local SQLite database at `dat
 
 This local-file setup is intended for a persistent Node.js server. Serverless deployments need a persistent volume or a hosted SQLite-compatible service; otherwise, database writes may be lost between instances.
 
+On Vercel, the app uses `/tmp/companions.sqlite` by default so the function can write its database. Vercel's `/tmp` storage is temporary and not shared between function instances, so companions and session history may disappear or differ between requests. Use a hosted database for persistent production data. Set `SQLITE_DB_PATH` only to a writable SQLite path.
+
 
 To learn more about Next.js, take a look at the following resources:
 
